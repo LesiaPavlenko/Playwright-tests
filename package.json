@@ -2,9 +2,7 @@
   "name": "playwright-tests",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LesiaPavlenko/Playwright-tests.git"
@@ -17,5 +15,9 @@
     "url": "https://github.com/LesiaPavlenko/Playwright-tests/issues"
   },
   "homepage": "https://github.com/LesiaPavlenko/Playwright-tests#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.58.1",
+    "@types/node": "^25.2.0"
+  }
 }
