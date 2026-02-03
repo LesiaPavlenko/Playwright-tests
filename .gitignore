@@ -1,0 +1,5 @@
+// Ignore test result directories and log files
+node_modules/
+mochawesome-report/
+npm-debug.log*
+yarn-debug.log*
