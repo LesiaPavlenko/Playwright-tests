@@ -11,6 +11,13 @@ jobs:
     container:
       image: mcr.microsoft.com/playwright:v1.39.0-jammy
 
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
+      BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
+      BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
+      USER_EMAIL: ${{ secrets.USER_EMAIL }}
+      USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,4 +26,4 @@ jobs:
         run: npm ci
 
       - name: Run Playwright tests
-        run: npx playwright test --project=chromium --reporter=line
+        run: npx playwright test --project=chromium
