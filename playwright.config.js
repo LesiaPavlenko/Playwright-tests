@@ -17,27 +17,30 @@ export default defineConfig({
       password: process.env.BASIC_AUTH_PASSWORD,
     },
 
-    headless: false,
+    headless: true, // ✅ потрібно для Docker / CI
+
     viewport: { width: 1280, height: 720 },
     actionTimeout: 10000,
     navigationTimeout: 30000,
+
     trace: 'on-first-retry',
     video: 'retain-on-failure',
   },
 
   projects: [
     {
-    name: 'setup',
-    testMatch: /.*\.setup\.spec\.ts/,
-  },
-{
-  name: 'chromium',
-  use: {
-    ...devices['Desktop Chrome'],
-    baseURL: process.env.BASE_URL,
-    storageState: 'storageState.json',
-  },
-  dependencies: ['setup'],
-}
+      name: 'setup',
+      testMatch: /.*\.setup\.spec\.ts/,
+    },
+
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: process.env.BASE_URL,
+        storageState: 'storageState.json',
+      },
+      dependencies: ['setup'],
+    }
   ],
 });
